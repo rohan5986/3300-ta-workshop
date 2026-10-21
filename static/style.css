@@ -1,5 +1,6 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
     display: flex;
@@ -12,7 +13,7 @@ body {
     background: white;
     padding: 20px 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
 }
@@ -28,11 +29,30 @@ h1 {
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+input[type="text"],
+select {
     flex: 1;
+    min-width: 0;
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+select {
+    background-color: white;
+    color: #333;
 }
 
 button {
@@ -58,6 +78,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
@@ -66,12 +87,61 @@ li:last-child {
     border-bottom: none;
 }
 
+.task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.priority {
+    width: fit-content;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.priority-low {
+    color: #155724;
+    background-color: #d4edda;
+}
+
+.priority-medium {
+    color: #856404;
+    background-color: #fff3cd;
+}
+
+.priority-high {
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
 .delete-btn {
     background-color: #dc3545;
     padding: 4px 8px;
     font-size: 12px;
+    flex-shrink: 0;
 }
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .task-input {
+        flex-wrap: wrap;
+    }
+
+    input[type="text"] {
+        flex-basis: 100%;
+    }
 }
