@@ -1,6 +1,5 @@
 const DEFAULT_PRIORITY = 'Medium';
 
-
 document.addEventListener('DOMContentLoaded', fetchTasks);
 
 
